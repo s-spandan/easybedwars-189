@@ -14,6 +14,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.util.*;
@@ -74,7 +75,7 @@ public class Arena {
 
         PlayerJoinArenaEvent event = new PlayerJoinArenaEvent(this, player);
         Bukkit.getPluginManager().callEvent(event);
-        
+
         if (event.isCancelled()) {
             return false;
         }
@@ -92,10 +93,10 @@ public class Arena {
         player.getInventory().clear();
         player.teleport(lobbySpawn);
 
-        broadcast(plugin.getLanguageManager().getMessage("game.join", 
-            "player", player.getName(),
-            "current", String.valueOf(players.size()),
-            "max", String.valueOf(maxPlayers)));
+        broadcast(plugin.getLanguageManager().getMessage("game.join",
+                "player", player.getName(),
+                "current", String.valueOf(players.size()),
+                "max", String.valueOf(maxPlayers)));
 
         if (players.size() >= minPlayers && state == GameState.WAITING) {
             startCountdown();
@@ -112,7 +113,7 @@ public class Arena {
         Bukkit.getPluginManager().callEvent(event);
 
         players.remove(gamePlayer);
-        
+
         if (gamePlayer.getTeam() != null) {
             gamePlayer.getTeam().removePlayer(player);
         }
@@ -171,7 +172,7 @@ public class Arena {
         for (GamePlayer gp : players) {
             Player player = gp.getPlayer();
             player.getInventory().clear();
-            
+
             if (gp.getTeam() != null && gp.getTeam().getSpawn() != null) {
                 player.teleport(gp.getTeam().getSpawn());
                 giveStartingItems(player, gp.getTeam());
@@ -244,9 +245,9 @@ public class Arena {
 
         for (GamePlayer gp : players) {
             Player player = gp.getPlayer();
-            
+
             plugin.getStatsManager().updateStats(player, gp, winningTeam);
-            
+
             gp.restoreInventory();
             player.teleport(lobbySpawn);
         }
@@ -308,12 +309,17 @@ public class Arena {
     }
 
     public void playSound(XSound sound) {
-        players.forEach(gp -> sound.play(gp.getPlayer()));
+        players.forEach(gp -> {
+            Player p = gp.getPlayer();
+            sound.play(p.getLocation(), 1.0f, 1.0f);
+        });
     }
 
     private void giveStartingItems(Player player, Team team) {
-        XMaterial.matchXMaterial("WOODEN_SWORD").map(XMaterial::parseItem).ifPresent(item -> 
-            player.getInventory().addItem(item));
+        ItemStack sword = XMaterial.matchXMaterial("WOODEN_SWORD").map(XMaterial::parseItem).orElse(null);
+        if (sword != null) {
+            player.getInventory().addItem(sword);
+        }
     }
 
     public boolean isPlaying() {
