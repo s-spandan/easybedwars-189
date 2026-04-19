@@ -1,0 +1,54 @@
+database:
+  type: SQLITE
+  mysql:
+    host: localhost
+    port: 3306
+    database: bedwars
+    username: root
+    password: ''
+    pool-size: 10
+
+game:
+  min-players: 2
+  countdown-time: 10
+  respawn-time: 5
+  max-team-upgrades: 4
+  generator-upgrade-diamond: 360
+  generator-upgrade-emerald: 720
+  game-time-limit: 3600
+
+generator:
+  split-enabled: true
+  split-radius: 5.0
+  team-iron-delay: 1000
+  team-gold-delay: 5000
+  global-diamond-delay: 30000
+  global-emerald-delay: 60000
+
+features:
+  popup-towers: true
+  tracker-compass: true
+  generator-split: true
+
+shop:
+  quick-buy-enabled: true
+  show-prices: true
+
+stats:
+  enabled: true
+  save-interval: 300
+
+scoreboard:
+  enabled: true
+  refresh-interval: 20
+
+cosmetics:
+  enabled: true
+  default-kill-message: '{killer} killed {player}'
+
+chat:
+  team-chat-prefix: '&7[TEAM] '
+  global-chat-prefix: '&6[SHOUT] '
+  spectator-prefix: '&7[SPECTATOR] '
+
+debug: false

@@ -1,0 +1,31 @@
+name: EasyBedWars
+version: 1.0.0
+main: com.easybedwars.EasyBedWars
+author: EasyBedWars
+description: Complete BedWars minigame with advanced features
+softdepend: [PlaceholderAPI, Vault]
+
+commands:
+  bw:
+    description: Main BedWars command
+    aliases: [bedwars]
+  shout:
+    description: Shout to all players in your game
+    aliases: [s]
+
+permissions:
+  bedwars.admin:
+    description: Admin permissions
+    default: op
+  bedwars.setup:
+    description: Setup arenas
+    default: op
+  bedwars.join:
+    description: Join games
+    default: true
+  bedwars.stats:
+    description: View stats
+    default: true
+  bedwars.vip:
+    description: VIP features
+    default: false

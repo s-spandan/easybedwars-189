@@ -1,0 +1,48 @@
+prefix: '&8[&c&lBedWars&8] &r'
+
+game.join: '&a{player} joined the game! &7({current}/{max})'
+game.leave: '&c{player} left the game!'
+game.start: '&aThe game has started!'
+game.end: '&6The game has ended!'
+game.countdown: '&eGame starting in &c{time} &eseconds!'
+game.full: '&cThis game is full!'
+game.already-in-game: '&cYou are already in a game!'
+game.not-in-game: '&cYou are not in a game!'
+
+team.join: '&aYou joined team {team}!'
+team.bed-destroyed: '&cBED DESTRUCTION > {team} Bed was destroyed by {player}!'
+team.eliminated: '&cTEAM ELIMINATED > {team} was eliminated!'
+team.upgrade: '&aYour team purchased {upgrade}!'
+
+player.kill: '&c{killer} killed {player}!'
+player.final-kill: '&c&lFINAL KILL! &r{killer} killed {player}!'
+player.bed-break: '&6You destroyed {team} bed!'
+player.respawn: '&aYou will respawn in &c{time} &aseconds!'
+player.eliminated: '&cYou have been eliminated!'
+player.reconnect: '&aYou have &c{time} &aseconds to reconnect!'
+
+shop.purchase: '&aYou purchased {item}!'
+shop.insufficient-funds: '&cYou don''t have enough {resource}!'
+shop.inventory-full: '&cYour inventory is full!'
+
+generator.tier-upgrade: '&eAll &b{resource} &egenerators have been upgraded to &eTier {tier}!'
+
+stats.header: '&8&m--------------&8[ &c&lStats &8]&m--------------'
+stats.kills: '&eKills: &f{kills}'
+stats.deaths: '&eDeaths: &f{deaths}'
+stats.final-kills: '&eFinal Kills: &f{finalKills}'
+stats.wins: '&eWins: &f{wins}'
+stats.losses: '&eLosses: &f{losses}'
+stats.beds-broken: '&eBeds Broken: &f{bedsBroken}'
+stats.level: '&eLevel: &f{level}'
+stats.footer: '&8&m------------------------------------'
+
+setup.arena-created: '&aArena {arena} created!'
+setup.spawn-set: '&aSpawn set for team {team}!'
+setup.generator-set: '&aGenerator {type} placed!'
+setup.must-be-in-world: '&cYou must be in the arena world!'
+setup.saved: '&aArena configuration saved!'
+
+error.arena-not-found: '&cArena not found!'
+error.no-permission: '&cYou don''t have permission!'
+error.player-not-found: '&cPlayer not found!'
